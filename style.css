@@ -1,0 +1,97 @@
+body{
+font-family:Arial;
+background-color:#f2f2f2;
+text-align: center;
+}
+
+header{
+background-color:#4CAF50;
+color:white;
+padding:15px;
+}
+
+nav a{
+margin:10px;
+text-decoration:none;
+color:black;
+font-weight:bold;
+}
+
+nav a:hover{
+color: #2e4eec;
+}
+
+table{
+margin:auto;
+border-collapse:collapse;
+background-color:rgba(201, 208, 140, 0.667);
+}
+
+table, th, td{
+border:1px solid black;
+padding:8px;
+}
+
+th{
+background:#4CAF50;
+color:white;
+}
+
+footer{
+margin-top:20px;
+background-color:#333;
+color:white;
+padding:10px;
+}
+
+input{
+margin:5px;
+padding:5px;
+}
+
+button{
+background:#4CAF50;
+color:white;
+border:none;
+padding:8px 15px;
+cursor:pointer;
+}
+
+button:hover{
+background:#45a049;
+}
+
+img{
+margin-top:15px;
+width:300px;
+border-radius:10px;
+}
+
+.kampaniya{
+background:#fff3cd;
+padding:20px;
+margin:20px;
+}
+
+.box{
+background:#4CAF50;
+color:white;
+padding:5px;
+transition:0.3s;
+}
+
+.box:hover{
+transform:translateY(-5px);
+}
+
+input[type="reset"]{
+  background-color: #333;
+  color:white;
+  border:none;
+  padding:8px;
+  transition:0.3s;
+}
+
+button:hover, input[type="reset"]:hover{
+  transform:scale(1.05);
+}
