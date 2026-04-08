@@ -1,0 +1,92 @@
+const symbols = ["🍎","🍌","🍇","🍒","🍉","🍍","🥝","🍑"];
+let game = document.getElementById("game");
+let firstCard = null;
+let secondCard = null;
+let lock = false;
+let time = 50; // 50 saniyə vaxt
+let correct = 0;
+let timer;
+
+function startGame() {
+    game.innerHTML = "";
+    let cards = [...symbols, ...symbols];
+    cards.sort(() => 0.5 - Math.random());
+
+    correct = 0;
+    time = 50;
+    document.getElementById("time").textContent = time;
+
+    clearInterval(timer);
+
+    cards.forEach(symbol => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    const inner = document.createElement("div");
+    inner.classList.add("card-inner");
+
+    const front = document.createElement("div");
+    front.classList.add("card-front");
+
+    const back = document.createElement("div");
+    back.classList.add("card-back");
+    back.textContent = symbol;
+
+    inner.appendChild(front);
+    inner.appendChild(back);
+    card.appendChild(inner);
+    game.appendChild(card);
+
+    card.addEventListener("click", () => {
+    if (lock || card.classList.contains("matched") || card === firstCard) return;
+
+    card.classList.add("open");
+    if (!firstCard) {
+        firstCard = card;
+    } else {
+        secondCard = card;
+        lock = true;
+
+    if (firstCard.querySelector(".card-back").textContent === secondCard.querySelector(".card-back").textContent) {\
+        firstCard.classList.add("matched");
+        secondCard.classList.add("matched");
+        correct++;
+        reset();
+        checkWin();
+    } else {
+        setTimeout(() => {
+        firstCard.classList.remove("open");
+        secondCard.classList.remove("open");
+        reset();
+    }, 700);
+}
+}
+});
+});
+
+timer = setInterval(() => {
+    time--;
+    document.getElementById("time").textContent = time;
+    if (time <= 0) {
+    clearInterval(timer);
+    alert("Vaxt bitdi! Skorun: " + correct);
+    revealAll();
+}
+}, 1000);
+}
+
+function reset() { firstCard = null; secondCard = null; lock = false; }
+
+function checkWin() {
+const allMatched = document.querySelectorAll(".matched").length === symbols.length * 2;
+if (allMatched) {
+    clearInterval(timer);
+    alert("Qazandın! Skorun: " + correct);
+}
+}
+
+function revealAll() {
+    document.querySelectorAll(".card").forEach(card => card.classList.add("open"));
+}
+
+startGame();
