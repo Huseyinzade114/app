@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <title>Vaxtlı Uyğunluq Oyunu</title>
+  <link rel="stylesheet" href="C:\Users\LENOVO\layihəm\style.css">
+
+ 
+</head>
+<body>
+  <script src="script.js"></script>
+  
+  <h1>🌈 Vaxtlı Uyğunluq Oyunu</h1>
+
+<div class="info">Vaxt: <span id="time">50</span></div>
+
+<div class="game" id="game"></div>
+<button onclick="startGame()">Yenidən başla</button>
+
+
+
+</body>
+</html>
