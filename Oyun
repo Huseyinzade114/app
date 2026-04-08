@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <title>Vaxtlı Uyğunluq Oyunu</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: #fff;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    .info {
+      color: #fff;
+      margin: 5px;
+      font-size: 18px;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    .game {
+      display: grid;
+      grid-template-columns: repeat(4, 90px);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .card {
+      width: 90px;
+      height: 90px;
+      perspective: 1000px;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+    .card.open .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      color: #fff;
+    }
+
+    .card-front { background: #3498db; }
+    .card-back { background: #e74c3c; transform: rotateY(180deg); }
+    .card.matched .card-back { background: #2ecc71; } /* Yaşıl rəng */
+
+    button {
+      margin-top: 20px;
+      padding: 10px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background: #fff;
+      color: #3498db;
+      font-weight: bold;
+      box-shadow: 2px 2px 5px #555;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🌈 Vaxtlı Uyğunluq Oyunu</h1>
+
+<div class="info">Vaxt: <span id="time">50</span></div>
+
+<div class="game" id="game"></div>
+<button onclick="startGame()">Yenidən başla</button>
+
+<script>
+  const symbols = ["🍎","🍌","🍇","🍒","🍉","🍍","🥝","🍑"];
+  let game = document.getElementById("game");
+
+  let firstCard = null;
+  let secondCard = null;
+  let lock = false;
+  let time = 50; // 50 saniyə vaxt
+  let correct = 0;
+  let timer;
+
+  function startGame() {
+    game.innerHTML = "";
+    let cards = [...symbols, ...symbols];
+    cards.sort(() => 0.5 - Math.random());
+
+    correct = 0;
+    time = 50;
+    document.getElementById("time").textContent = time;
+
+    clearInterval(timer);
+
+    cards.forEach(symbol => {
+      const card = document.createElement("div");
+      card.classList.add("card");
+
+      const inner = document.createElement("div");
+      inner.classList.add("card-inner");
+
+      const front = document.createElement("div");
+      front.classList.add("card-front");
+
+      const back = document.createElement("div");
+      back.classList.add("card-back");
+      back.textContent = symbol;
+
+      inner.appendChild(front);
+      inner.appendChild(back);
+      card.appendChild(inner);
+      game.appendChild(card);
+
+      card.addEventListener("click", () => {
+        if (lock || card.classList.contains("matched") || card === firstCard) return;
+
+        card.classList.add("open");
+
+        if (!firstCard) {
+          firstCard = card;
+        } else {
+          secondCard = card;
+          lock = true;
+
+          if (firstCard.querySelector(".card-back").textContent === secondCard.querySelector(".card-back").textContent) {
+            firstCard.classList.add("matched");
+            secondCard.classList.add("matched");
+            correct++;
+            reset();
+            checkWin();
+          } else {
+            setTimeout(() => {
+              firstCard.classList.remove("open");
+              secondCard.classList.remove("open");
+              reset();
+            }, 700);
+          }
+        }
+      });
+    });
+
+    timer = setInterval(() => {
+      time--;
+      document.getElementById("time").textContent = time;
+      if (time <= 0) {
+        clearInterval(timer);
+        alert("Vaxt bitdi! Skorun: " + correct);
+        revealAll();
+      }
+    }, 1000);
+  }
+
+  function reset() { firstCard = null; secondCard = null; lock = false; }
+
+  function checkWin() {
+    const allMatched = document.querySelectorAll(".matched").length === symbols.length * 2;
+    if (allMatched) {
+      clearInterval(timer);
+      alert("Qazandın! Skorun: " + correct);
+    }
+  }
+
+  function revealAll() {
+    document.querySelectorAll(".card").forEach(card => card.classList.add("open"));
+  }
+
+  startGame();
+</script>
+
+</body>
+</html>
