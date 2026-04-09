@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<title>Mənim ilk veb saytım</title>
+
+<style>
+body{
+font-family:Arial;
+background-color:#f2f2f2;
+text-align: center;
+}
+
+header{
+background-color:#4CAF50;
+color:white;
+padding:15px;
+}
+
+.kampaniya {
+    background: gold;
+    padding: 10px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.form-container {
+    display: none;
+    margin: 20px;
+    padding: 15px;
+    border: 2px solid #333;
+    background: #f9f9f9;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>IT Academy</h1>
+</header>
+
+<div class="kampaniya">
+<h2>KAMPANİYA!</h2>
+<p>🚀 Kurs müddətinin sonuna qədər ofis proqramları dərsləri hədiyyə verilir 🎯</p>
+</div>
+
+<h2>Keçirilən dərslər</h2>
+
+<table>
+<tr>
+<th>Təlimçi</th>
+<th>Kurs</th>
+<th>Müddət</th>
+<th>Ödəniş</th>
+<th>Əməliyyat</th>
+</tr>
+
+<tr>
+<td>Mustafayeva Səbinə</td>
+<td>IT mühəndis</td>
+<td>5 ay</td>
+<td>210 AZN</td>
+<td><button onclick="showForm('form1')">Qeydiyyat</button></td>
+</tr>
+
+<tr>
+<td>Qarayeva Rahilə</td>
+<td>Data Analitika</td>
+<td>6 ay</td>
+<td>240 AZN</td>
+<td><button onclick="showForm('form2')">Qeydiyyat</button></td>
+</tr>
+
+<tr>
+<td>Məmmədli Günel</td>
+<td>Web Proqramlaşdırma</td>
+<td>8 ay</td>
+<td>230 AZN</td>
+<td><button onclick="showForm('form3')">Qeydiyyat</button></td>
+</tr>
+</table>
+
+
+<div id="form1" class="form-container">
+<h3>IT mühəndis qeydiyyat formu</h3>
+<form onsubmit="submitForm(event)">
+Ad: <input type="text" required><br><br>
+Email: <input type="email" required><br><br>
+Yaş: <input type="number" min="1" required><br><br>
+
+Kurs forması:<br>
+<input type="radio" name="serait1" required> Əyani
+<input type="radio" name="serait1"> Online
+
+<br><br>
+<button type="submit">Göndər</button>
+<button type="reset">Reset</button>
+<button type="button" onclick="hideForms()">Bağla</button>
+</form>
+</div>
+
+
+<div id="form2" class="form-container">
+<h3>Data Analitika qeydiyyat formu</h3>
+<form onsubmit="submitForm(event)">
+Ad: <input type="text" required><br><br>
+Email: <input type="email" required><br><br>
+Yaş: <input type="number" min="1" required><br><br>
+
+Kurs forması:<br>
+<input type="radio" name="serait2" required> Əyani
+<input type="radio" name="serait2"> Online
+
+<br><br>
+<button type="submit">Göndər</button>
+<button type="reset">Reset</button>
+<button type="button" onclick="hideForms()">Bağla</button>
+</form>
+</div>
+
+
+<div id="form3" class="form-container">
+<h3>Web Proqramlaşdırma qeydiyyat formu</h3>
+<form onsubmit="submitForm(event)">
+Ad: <input type="text" required><br><br>
+Email: <input type="email" required><br><br>
+Yaş: <input type="number" min="1" required><br><br>
+
+Kurs forması:<br>
+<input type="radio" name="serait3" required> Əyani
+<input type="radio" name="serait3"> Online
+
+<br><br>
+<button type="submit">Göndər</button>
+<button type="reset">Reset</button>
+<button type="button" onclick="hideForms()">Bağla</button>
+</form>
+</div>
+
+<h2>Şəkil</h2>
+<img src="https://avatars.mds.yandex.net/get-altay/13220782/2a0000018fa2c6b14785674db6f6864c9867/L_height" alt="IT Academy">
+
+<address>IT Academy kod yazmağı sevərlərin ünvanı</address>
+
+<footer>
+<p>2026 © IT Academy</p>
+</footer>
+
+<script>
+function showForm(formId) {
+    const forms = document.querySelectorAll('.form-container');
+    forms.forEach(f => f.style.display = 'none');
+
+    document.getElementById(formId).style.display = 'block';
+
+    window.scrollTo(0, document.body.scrollHeight);
+}
+
+function hideForms() {
+    const forms = document.querySelectorAll('.form-container');
+    forms.forEach(f => f.style.display = 'none');
+}
+
+function submitForm(event) {
+    event.preventDefault();
+
+    alert("Qeydiyyat tamamlandı!");
+
+    event.target.reset();
+
+    hideForms();
+}
+</script>
+
+</body>
+</html>
