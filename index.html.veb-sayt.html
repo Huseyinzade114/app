@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<title>IT Academy</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|Sofia|emboss|shadow-multiple">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="container">   
+    <h1 class="font-effect-shadow-multiple">IT Academy</h1>   
+</header>
+
+<div class="kampaniya container">
+    <h2>KAMPANİYA!</h2>
+    <p>🚀 Kurs müddətinin sonuna qədər ofis proqramları dərsləri hədiyyə verilir 🎯</p>
+</div>
+
+<h2>Keçirilən dərslər</h2>
+
+<table>
+<tr>
+<th>Təlimçi</th>
+<th>Kurs</th>
+<th>Müddət</th>
+<th>Ödəniş</th>
+<th>Əməliyyat</th>
+</tr>
+
+<tr>
+<td>Mustafayeva Səbinə</td>
+<td>IT mühəndis</td>
+<td>5 ay</td>
+<td>210 AZN</td>
+<td><button onclick="showForm('form1')">Qeydiyyat</button></td>
+</tr>
+
+<tr>
+<td>Qarayeva Rahilə</td>
+<td>Data Analitika</td>
+<td>6 ay</td>
+<td>240 AZN</td>
+<td><button onclick="showForm('form2')">Qeydiyyat</button></td>
+</tr>
+
+<tr>
+<td>Məmmədli Günel</td>
+<td>Web Proqramlaşdırma</td>
+<td>8 ay</td>
+<td>230 AZN</td>
+<td><button onclick="showForm('form3')">Qeydiyyat</button></td>
+</tr>
+</table>
+
+<div id="form1" class="form-container">
+<h3>IT mühəndis</h3>
+<form onsubmit="submitForm(event)">
+
+<input type="text" placeholder="Ad" required><br>
+<input type="email" placeholder="Email" required><br>
+<input type="number" placeholder="Yaş" min="1" required><br>
+
+<div class="radio-group">
+<label><input type="radio" name="s1" value="Əyani" required> Əyani</label>
+<label><input type="radio" name="s1" value="Online"> Online</label>
+</div>
+
+<button type="submit">Göndər</button>
+<button type="reset">Reset</button>
+<button type="button" onclick="hideForms()">Bağla</button>
+</form>
+</div>
+
+<div id="form2" class="form-container">
+<h3>Data Analitika</h3>
+<form onsubmit="submitForm(event)">
+
+<input type="text" placeholder="Ad" required><br>
+<input type="email" placeholder="Email" required><br>
+<input type="number" placeholder="Yaş" min="1" required><br>
+
+<div class="radio-group">
+<label><input type="radio" name="s2" value="Əyani" required> Əyani</label>
+<label><input type="radio" name="s2" value="Online"> Online</label>
+</div>
+
+<button type="submit">Göndər</button>
+<button type="reset">Reset</button>
+<button type="button" onclick="hideForms()">Bağla</button>
+</form>
+</div>
+
+<div id="form3" class="form-container">
+<h3>Web Proqramlaşdırma</h3>
+<form onsubmit="submitForm(event)">
+
+<input type="text" placeholder="Ad" required><br>
+<input type="email" placeholder="Email" required><br>
+<input type="number" placeholder="Yaş" min="1" required><br>
+
+<div class="radio-group">
+<label><input type="radio" name="s3" value="Əyani" required> Əyani</label>
+<label><input type="radio" name="s3" value="Online"> Online</label>
+</div>
+
+<button type="submit">Göndər</button>
+<button type="reset">Reset</button>
+<button type="button" onclick="hideForms()">Bağla</button>
+</form>
+</div>
+<img src="https://avatars.mds.yandex.net/get-altay/13220782/2a0000018fa2c6b14785674db6f6864c9867/L_height" class="circle-image"> <br></br>
+<address>Kod yazmağı severlərin ünvanı</address>
+<footer>
+<p>2026 © IT Academy</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
