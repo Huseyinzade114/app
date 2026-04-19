@@ -1,0 +1,110 @@
+body{
+    background: linear-gradient(135deg, #eef2f7, #d9e4f5);
+    text-align: center;
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+h1.b {
+  font-family: "Sofia", sans-serif;
+}
+
+header {
+    background: linear-gradient(90deg, #4b6cb7, #182848);
+    color: white;
+    padding: 20px;
+    font-size: 30px;
+}
+
+.kampaniya {
+   background: linear-gradient(90deg, #ff7a18, #ffb347);
+    color: white;
+    padding: 20px;
+}
+
+table {
+    width: 90%;
+    margin: 40px auto;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th {
+    background: #4b6cb7;
+    color: white;
+}
+
+th, td {
+    padding: 15px;
+}
+
+tr:nth-child(even) {
+    background-color: #f4f7fb;
+}
+
+button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    background: #4b6cb7;
+    color: white;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover {
+    background: #182848;
+}
+
+.form-container {
+    display: none;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    width: 60%;
+    border-radius: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"]{
+    padding: 8px;
+    width: 70%;
+    margin: 5px;
+}
+
+.radio-group {
+    margin: 15px 0;
+}
+
+.radio-group label {
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+.radio-group input {
+    margin-right: 5px;
+    accent-color: #4b6cb7;
+}
+
+.circle-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+footer {
+    background: #182848;
+    color: white;
+    padding: 15px;
+    margin-top: 40px;
+}
