@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>IT Academy</title>
+
+
+</head>
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:linear-gradient(135deg,#eef2f7,#d9e4f5);
+}
+
+.top-panel{
+    background:#182848;
+    color:white;
+    padding:20px;
+    position:relative;
+    height:120px;
+}
+
+.logo{
+    text-align:center;
+    font-size:35px;
+    font-weight:bold;
+    margin-top:30px;
+}
+
+.menu-box{
+    position:absolute;
+    right:20px;
+    top:15px;
+    background:white;
+    width:190px;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.menu-btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    background:white;
+    color:#182848;
+    font-size:16px;
+    font-weight:bold;
+    text-align:left;
+    cursor:pointer;
+    border-bottom:1px solid #ddd;
+    transition:0.3s;
+}
+
+.menu-btn:hover{
+    background:#4b6cb7;
+    color:white;
+}
+
+.section{
+    width:90%;
+    margin:30px auto;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.kampaniya{
+    background:linear-gradient(90deg,#ff7a18,#ffb347);
+    color:white;
+    text-align:center;
+    padding:20px;
+    border-radius:10px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th,td{
+    border:1px solid #ddd;
+    padding:12px;
+    text-align:center;
+}
+
+th{
+    background:#4b6cb7;
+    color:white;
+}
+
+button{
+    padding:10px 15px;
+    border:none;
+    border-radius:6px;
+    background:#4b6cb7;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#182848;
+}
+
+.form-container{
+    display:none;
+    width:420px;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    margin:30px auto;
+    text-align:center;
+}
+
+input,select,textarea{
+    width:90%;
+    padding:10px;
+    margin-top:8px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+.field{
+    margin-bottom:15px;
+}
+
+.error{
+    color:red;
+    font-size:14px;
+    margin:5px 0;
+}
+
+.ok{
+    color:green;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.circle-image{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    margin-top:20px;
+}
+
+footer{
+    background:#182848;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:40px;
+}
+
+</style>
+
+<body>
+
+<div class="top-panel">
+
+    <div class="logo">
+        IT Academy
+    </div>
+
+    <div class="menu-box">
+
+        <button class="menu-btn" onclick="showSection('home')">
+            Ana səhifə
+        </button>
+
+        <button class="menu-btn" onclick="showSection('services')">
+            Xidmətlər
+        </button>
+
+        <button class="menu-btn" onclick="showSection('login')">
+            Login
+        </button>
+
+        <button class="menu-btn" onclick="showSection('register')">
+            Qeydiyyat
+        </button>
+
+        <button class="menu-btn" onclick="showSection('contact')">
+            Əlaqə
+        </button>
+
+    </div>
+
+</div>
+
+<div id="home" class="section">
+
+    <div class="kampaniya">
+        <h2>KAMPANİYA!</h2>
+        <p>🚀 Kurs müddətinin sonuna qədər ofis proqramları dərsləri hədiyyə verilir 🎯</p>
+    </div>
+
+    <br>
+
+    <center>
+
+        <img src="https://avatars.mds.yandex.net/get-altay/13220782/2a0000018fa2c6b14785674db6f6864c9867/L_height"
+        class="circle-image">
+
+        <address>Kod yazmağı sevənlərin ünvanı</address>
+
+    </center>
+
+    <footer> 2026 © IT Academy </footer>
+
+</div>
+
+<div id="services" class="section" style="display:none;">
+
+<h2>Xidmətlər</h2>
+
+<table>
+
+<tr>
+<th>Təlimçi</th>
+<th>Kurs</th>
+<th>Müddət</th>
+<th>Ödəniş</th>
+<th></th>
+</tr>
+
+<tr>
+<td>Mustafayeva Səbinə</td>
+<td>IT mühəndis</td>
+<td>5 ay</td>
+<td>210 AZN</td>
+
+<td>
+<button onclick="showServiceForm('IT mühəndis')">
+Qeydiyyat
+</button>
+</td>
+</tr>
+
+<tr>
+<td>Qarayeva Rahilə</td>
+<td>Data Analitika</td>
+<td>6 ay</td>
+<td>240 AZN</td>
+
+<td>
+<button onclick="showServiceForm('Data Analitika')">
+Qeydiyyat
+</button>
+</td>
+</tr>
+
+<tr>
+<td>Məmmədli Günel</td>
+<td>Web Proqramlaşdırma</td>
+<td>8 ay</td>
+<td>230 AZN</td>
+
+<td>
+<button onclick="showServiceForm('Web Proqramlaşdırma')">
+Qeydiyyat
+</button>
+</td>
+</tr>
+
+</table>
+
+<div id="serviceForm" class="form-container">
+
+<h2>Kurs Qeydiyyatı</h2>
+
+<form id="courseForm">
+
+<div class="field">
+<input type="text" id="fullname" placeholder="Ad Soyad">
+<p id="nameError" class="error"></p>
+</div>
+
+<div class="field">
+<input type="text" id="email" placeholder="Email">
+<p id="emailError" class="error"></p>
+</div>
+
+<div class="field">
+<input type="text" id="phone" placeholder="Telefon nömrəsi">
+<p id="phoneError" class="error"></p>
+</div>
+
+<div class="field">
+<select id="courseSelect">
+<option>IT mühəndis</option>
+<option>Data Analitika</option>
+<option>Web Proqramlaşdırma</option>
+</select>
+
+<p id="courseError" class="error"></p>
+</div>
+
+<div class="field">
+<textarea 
+id="note"
+placeholder="Əlavə qeyd"
+style="height:100px;">
+</textarea>
+</div>
+
+<button type="submit">
+Qeydiyyatı tamamla
+</button>
+
+<button type="reset">Reset</button>
+
+</form>
+
+<p id="result"></p>
+
+</div>
+
+</div>  
+
+
+<div id="login" class="section" style="display:none;">
+    <h2>Login</h2>
+
+
+
+<form onsubmit="loginUser(event)">
+
+<input type="email" placeholder="Email" required>
+<br><br>
+
+<input type="password" placeholder="Şifrə" required>
+<br><br>
+
+<button type="submit">Daxil ol</button>
+
+</form>
+
+</div>
+
+<div id="register" class="section" style="display:none;">
+
+<h2>Qeydiyyat</h2>
+
+<form onsubmit="registerUser(event)">
+
+<input type="text" placeholder="Ad" required>
+<br><br>
+
+<input type="email" placeholder="Email" required>
+<br><br>
+
+<input type="password" placeholder="Şifrə" required>
+<br><br>
+
+<button type="submit">Qeydiyyat</button>
+
+</form>
+
+</div>
+
+
+<div id="contact" class="section" style="display:none;">
+
+<h2>Əlaqə</h2>
+
+<p>📞 +994 50 000 00 00</p>
+<p>📧 info@itacademy.az</p>
+
+</div>
+
+<script>
+
+function showSection(id){
+
+    let sections=document.querySelectorAll(".section");
+
+    sections.forEach(sec=>{
+        sec.style.display="none";
+    });
+
+    document.getElementById(id).style.display="block";
+}
+
+function registerUser(e){
+
+    e.preventDefault();
+
+    let i=e.target.querySelectorAll("input");
+
+    localStorage.setItem("email",i[1].value);
+    localStorage.setItem("password",i[2].value);
+
+    alert("Qeydiyyat tamamlandı");
+}
+
+function loginUser(e){
+
+    e.preventDefault();
+
+    let i=e.target.querySelectorAll("input");
+
+    if(
+        i[0].value===localStorage.getItem("email")
+        &&
+        i[1].value===localStorage.getItem("password")
+    ){
+
+        alert("Xoş gəldiniz");
+
+    }else{
+
+        alert("Email və ya şifrə yanlışdır");
+
+    }
+}
+
+function showServiceForm(course){
+
+    document.getElementById("serviceForm").style.display="block";
+
+    document.getElementById("courseSelect").value=course;
+
+    document.getElementById("serviceForm")
+    .scrollIntoView({behavior:"smooth"});
+}
+
+function showError(element,message){
+    element.innerHTML=message;
+}
+
+function clearError(element){
+    element.innerHTML="";
+}
+
+const courseForm=document.getElementById("courseForm");
+
+courseForm.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    let fullname=document.getElementById("fullname");
+    let email=document.getElementById("email");
+    let phone=document.getElementById("phone");
+    let course=document.getElementById("courseSelect");
+
+    let valid=true;
+
+    if(fullname.value.trim()===""){
+        showError(
+            document.getElementById("nameError"),
+            "Ad sahəsi boş ola bilməz!"
+        );
+        valid=false;
+    }else{
+        clearError(document.getElementById("nameError"));
+    }
+
+    if(email.value.trim()===""){
+
+        showError(
+            document.getElementById("emailError"),
+            "Email boş ola bilməz!"
+        );
+
+        valid=false;
+
+    }else if(
+        !(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value))
+    ){
+
+        showError(
+            document.getElementById("emailError"),
+            "Düzgün email daxil edin!"
+        );
+
+        valid=false;
+
+    }else{
+
+        clearError(document.getElementById("emailError"));
+    }
+
+    if(phone.value.trim()===""){
+
+        showError(
+            document.getElementById("phoneError"),
+            "Telefon nömrəsi boş ola bilməz!"
+        );
+
+        valid=false;
+
+    }else{
+
+        clearError(document.getElementById("phoneError"));
+    }
+
+    if(course.value===""){
+
+        showError(
+            document.getElementById("courseError"),
+            "Kurs seçin!"
+        );
+
+        valid=false;
+
+    }else{
+
+        clearError(document.getElementById("courseError"));
+    }
+
+    let result=document.getElementById("result");
+
+    if(valid){
+
+        result.innerHTML="Qeydiyyat uğurla tamamlandı!";
+        result.className="ok";
+
+    }else{
+
+        result.innerHTML="Zəhmət olmasa boş xanaları doldurun!";
+        result.className="error";
+    }
+
+});
+
+</script>
+
+</body>
+</html>
